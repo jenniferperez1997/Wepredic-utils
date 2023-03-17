@@ -1,3 +1,7 @@
+# Thomas Darde
+# Project: Starlight mixture
+
+
 from chembl_webresource_client.new_client import new_client
 
 output = open("result.txt", "a")
