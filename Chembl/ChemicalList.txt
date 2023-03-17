@@ -1,0 +1,188 @@
+Cyclophosphamide	6055-19-2
+ENU	759-73-9
+MMS	66-27-3
+Benzo[a]pyrene	50-32-8
+7,12-Dimethylbenzanthracene	57-97-6
+2-Acetylaminofluorene	53-96-3
+2,4-Diaminotoluene	95-80-7
+Dimethylnitrosamine	62-75-9
+IQ(2-amino-3methylimidazo[4,5-f]quinoline)	76180-96-6
+PhIP.HCl(2-amino-1-methyl-6-phenylimidazo[4,5-b]pyridine	105650-23-5
+AflatoxinB1	1162-65-8
+p-Chloroaniline	106-47-8
+Cisplatin	15663-27-1
+Etoposide	33419-42-0
+Mitomycin C	50-07-7
+4-Nitroquinoline-N-oxide	56-57-5
+Cadmium chloride	10108-64-2
+Colchicine	64-86-8
+Hydroquinone	123-31-9
+Taxol	33069-62-4
+Vinblastine sulfate	143-67-9
+Azidothymidine	30516-87-1
+Cytosine arabinoside	147-94-4
+5-Fluorouracil	51-21-8
+Sodium arsenite	7784-46-5
+Ampicillin trihydrate	7177-48-2
+Alosetron	122852-42-0
+D-mannitol	69-65-8
+Tolterodine	124937-51-5
+(2-chloroethyl) trimethyl-ammonium chloride	999-81-5
+Sodium diclofenac	15307-79-6
+Zonisamide	68291-97-4
+n-Butyl chloride	109-69-3
+N,N-dicyclohexyl thiourea	1212-29-9
+Ephedrine sulphate/hydrochloride	134-72-5/134-71-4
+Erythromycin/erythromycin stearate	114-07-8/643-22-1
+Phenformin HCl	834-28-6
+Amitrole	61-82-5
+Di-(2-ethylhexyl) phthalate	117-81-7
+Diethanolamine	111-42-2
+Hexachloroethane	67-72-1
+D-Limonene	5989-27-5
+Melamine	108-78-1
+Methyl carbamate	598-55-0
+Pyridine	110-86-1
+Pyriofenone	688046-61-9
+Ropinirole	91374-21-9
+Rosuvastatin	147098-20-2
+Tert-butyl alcohol	75-65-0
+Topiramate	147098-20-2
+Tris(2-ethylhexyl) phosphate	78-42-2
+Zafirlukast	107753-78-6
+bosentan	147536-97-8
+cyclosporine A	59865-13-3
+nefazodone HCl	82752-99-6
+troglitazone	97322-87-7
+metformin	657-24-9
+entacapone	130929-57-6
+cimetidine	51481-61-9
+diclofenac	15307-86-5
+tolcapone	134308-13-7
+tacrolimus	104987-11-3
+Tartrazine	1934-21-0
+Paraquat dichloride 	 75365-73-0 
+4,4?-Diaminodiphenylmethane	101-77-9
+amiodarone HCl	19774-82-4
+acetaminophen	103-90-2
+buspirone HCl	33386-08-2 
+pioglitazone HCl	112529-15-4
+Amodiaquine	6398-98-7 
+Stavudine	3056-17-5
+5-Fluorouracil	51-21-8
+Acetaminophen	103-90-2
+Arsenic (III) Oxide	1327-53-3
+Bicalutamide	90357-06-5
+Cinchophen	132-60-5
+Copper (II) Chloride	7447-39-4
+Cyclosporin A	59865-13-3
+Cyproterone Acetate	427-51-0
+Diclofenac	15307-86-5
+Felbamate	25451-15-4
+Flutamide	13311-84-7
+Isoniazid	54-85-3
+Leflunomide	75706-12-6
+Methotrexate	59-05-2
+Potassium Dichromate	7778-50-9
+Sodium Valproate	99-66-1
+Stavudine	3056-17-5
+Tetracycline	64-75-5
+Tolcapone	134308-13-7
+Tolvaptan	150683-30-0
+Triptolide	38748-32-2
+Troglitazone	97322-87-7
+Acarbose	56180-94-0
+Azathioprine	446-86-6
+Azithromycin	83905-01-5
+Ciprofloxacin	85721-33-1
+Dacarbazine	04/03/4342
+Diltiazem HCl	33286-22-5
+Gentamycin Sulfate	1405-41-0
+Halothane	151-67-7 
+Ifosfamide	3778-73-2  
+Nevirapine	129618-40-2
+Penicillin	69-57-8 
+Probenecid	57-66-9
+Promethazine	60-87-7
+Sunitinib Malate	341031-54-7
+Vancomycin	1404-93-9
+Acesulfame Potassium	55589-62-3 
+Allantoin	97-59-6
+Ascorbate	134-03-2 
+Aspartame	22839-47-0 
+Betaine	590-47-6
+Caffeine	58-08-2
+Cepha-loridine	50-59-9
+Chloral Hydrate	302-17-0
+Colestipol	50925-79-6
+D-alpha Tocopherol	59-02-9 
+Ethylene Glycol	107-21-1
+Finasteride	98319-26-7
+Furosemide	54-31-9
+Garcinia Acid	27750-13-6 
+Glutathione	70-18-8 
+Glycine	56-40-6
+Lincomycin	859-18-7
+Lithium Chloride	7447-41-8
+Melatonin	73-31-4
+Menthol	89-78-1
+Methyl Vanillate	3943-74-6
+Modafinil	68693-11-8
+N-Acetyl Cysteine	616-91-1
+Naloxone	465-65-6
+Nicotine	54-11-5 
+Ribavirin	36791-04-5
+Sodium Chloride	7647-14-5 
+Sucrose	57-50-1
+Theophylline	58-55-9
+Torsemide	56211-40-6
+Trisodium Citrate Dihydrate	03/04/6132
+Vardenafil HCl	224785-91-5
+Clozapine	5786-21-0
+Diclofenac	15307-86-5
+Pulegone	89-82-7
+Ethinyl estradiol	57-63-6
+Ticlopidine	55142-85-3
+Montelukast	158966-92-8
+Losartan	114798-26-4
+Ciprofloxacin	85721-33-1
+Citalopram	59729-33-8
+Caffeine	58-08-2
+1,5-Naphthalenediamine	2243-62-1
+1,8-Dihydroxy-4,5-dinitroanthraquinone	81-55-0
+2,2'-Methylenebis-(4-chlorophenol)	97-23-4
+2,2'-Thiobis(4-chlorophenol)	97-24-5
+2-Aminoanthraquinone	117-79-3
+3,4,5-Trichlorophenol	609-19-8
+3,4-Dichlorophenyl isocyanate	102-36-3
+4,4-Thiobis(6-t-butyl-m-cresol)	96-69-5
+4-Cumylphenol	599-64-4
+4-Hydroxyphenyl retinamide	65646-68-6
+Apigenin	520-36-5
+Basic red 9 (p-Rosaniline HCl)	569-61-9
+Captan	133-06-2
+Curcumin	458-37-7
+Diethylstilbestrol [DES]	56-53-1
+Digitonin	11024-24-1
+Diphenylurea	102-07-8
+Emodin	518-82-1
+Formulated fenaminosulf (Dexon)	140-56-7
+Genistein (4',5,7-Trihydroxyisoflavone)	446-72-0
+Hexachlorophene	70-30-4
+Hexamethyl-p-rosaniline chloride (Gentian violet)	548-62-9
+Kaempferol	520-18-3
+Kepone	143-50-0
+Malachite green oxalate	2437-29-8
+Nitazoxanide	55981-09-4
+N-Phenyl-2-naphthylamine	135-88-6
+o,p'-DDD (Mitotane)	53-19-0
+o-Benzyl-p-chlorophenol	120-32-1
+p -n -Nonylphenol	104-40-5
+p-Aminophenol	123-30-8
+Phenmedipham	13684-63-4
+Phenyl mercuric acetate	62-38-4
+Resveratrol	501-36-0
+Riboflavin	83-88-5
+Silibinin	22888-70-6
+tetra-N-Octylammonium bromide	14866-33-2
+Zearalenone	17924-92-4
