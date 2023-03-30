@@ -37,19 +37,56 @@ def getGenes(json_data,compa):
     
     return genes
 
+def getGO(json_data,compa):
+    goes = []
+    deggo = json_data['alldeseqres'][compa]['annotGo']
+    for go in deggo:
+        dic_go = dict()
+        dic_go['onthology'] = go['ONTOLOGY']
+        dic_go['pval'] = go['pval']
+        dic_go['padj'] = go['padj']
+        dic_go['qval'] = go['qval']
+        dic_go['GeneTermRatio'] = go['GeneTermRatio']
+        dic_go['GeneQueryRatio'] = go['GeneQueryRatio']
+        dic_go['Description'] = go['Description']
+        dic_go['name'] = go['ID'].split('>')[2].replace('</a','')
+        goes.append(dic_go)
+    
+    return goes
+
+def getKEGG(json_data,compa):
+    keggs = []
+    degkegg = json_data['alldeseqres'][compa]['annotKegg']
+    for kegg in degkegg:
+        kegg_dic = dict()
+        kegg_dic['pval'] = kegg['pval']
+        kegg_dic['padj'] = kegg['padj']
+        kegg_dic['Count'] = kegg['Count']
+        kegg_dic['qval'] = kegg['qval']
+        kegg_dic['GenesInQuery'] = kegg['GenesInQuery']
+        kegg_dic['GenesInTermBackground'] = kegg['GenesInTermBackground']
+        kegg_dic['Description'] = kegg['Description']
+        kegg_dic['name'] = kegg['ID'].split('>')[2].replace('</a','')
+        keggs.append(kegg_dic)
+    
+    return keggs
+
 def run(json_file):
     compa_dict = dict()
     json_data = json2Dict(json_file)
-    print(json_data['i']['condition1'])
     compa = selectComparison(json_data)
     compa_dict['name'] = compa
     compa_dict['fc'] = getFoldChange(json_data,compa)
     compa_dict['overview'] = getOverAllInfo(json_data,compa)
     compa_dict['genes'] = getGenes(json_data,compa)
+    compa_dict['go'] = getGO(json_data,compa)
+    compa_dict['kegg'] = getKEGG(json_data,compa)
 
     return compa_dict
 
 file_test = 'tests/J0T0C0__vs__J1T1C6.json'
 test = run(file_test)
 
-print(test)
+
+with open("sample.json", "w") as outfile:
+    json.dump(test, outfile)
