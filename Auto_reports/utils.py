@@ -14,7 +14,7 @@ class Product:
         return r.json()
 
     def create(self, params):
-        print(params)
+        print(json.dumps(params))
         r = requests.post(
             self.api_url + "/products",
             headers={"Content-Type": "application/json"},
@@ -26,7 +26,7 @@ class Product:
         r = requests.put(
             self.api_url + "/products/" + str(id),
             headers={"Content-Type": "application/json"},
-            data=json.dumps(params),
+            data=json.dumps(params),allow_redirects=True
         )
         return r.json()
 
@@ -55,7 +55,6 @@ class Category:
         return r.json()
     
     def create(self, params):
-        print(params["name"], params["description"], params["number"])
         r = requests.post(
             self.api_url + "/product-categories",
             headers={"Content-Type": "application/json"},
@@ -139,7 +138,7 @@ class Session:
     
     def create(self, params):
         r = requests.post(
-            self.api_url + "/product-categories",
+            self.api_url + "/sessions",
             headers={"Content-Type": "application/json"},
             data=json.dumps(params),
         )

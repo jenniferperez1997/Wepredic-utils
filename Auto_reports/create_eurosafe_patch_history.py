@@ -1,4 +1,5 @@
 from utils import *
+from slugify import slugify
 
 def readHistoryFile():
     """Reads the history file and returns the list of patches that have been"""
@@ -7,7 +8,6 @@ def readHistoryFile():
     with open('Eurosafe_historique-format.csv', 'r') as f:
         for line in f:
             #split the line into a list of words by ;
-            print(line)
             line = line.split(';')
             
             #create PATCH,COMMANDITAIRE,NPRODUIT,DILUTION,SOO,NOM,PRODUIT,NVCATCOSM,RESULTAT,SCORAGE variables from split line
@@ -96,17 +96,17 @@ def readHistoryFile():
             product = Product()
             product_id = product.create(
                 {
-                    "name": NOMPRODUIT,
+                    "name": slugify(NOMPRODUIT),
                     "number": NPRODUIT,
                     "dilution": DILUTION,
                     "soo": SOO,
-                    "category_id": [category_id],
-                    "commanditary_id": [commanditaire_id],
+                    "product_category": [category_id],
+                    "commanditaire": [commanditaire_id],
                     "result": RESULTAT,
-                    "score": SCORAGE,
+                    "score": float(SCORAGE.replace(',','.')),
                     "session": [session_id],
                 }
-            )["id"]
+            )
 
     return product_id
 
@@ -134,5 +134,3 @@ def readCategoryFile():
 
 readHistoryFile()
 #readCategoryFile()
-category = Category()
-print(category.isExist({"number": 1}))
