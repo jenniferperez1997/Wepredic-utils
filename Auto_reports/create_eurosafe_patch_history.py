@@ -27,10 +27,10 @@ def readHistoryFile():
                 session_id = session.create({"name": SESSION})["id"]
 
             #if COMMANDITAIRE empty, Get previus value of COMMANDITAIRE
-            if line[1] != '':
-                COMMANDITAIRE = line[1]
+            if slugify(line[1]) != '':
+                COMMANDITAIRE = slugify(line[1])
 
-            COMMANDITAIRE = line[1]
+            COMMANDITAIRE = slugify(line[1])
 
             #Test if COMMANDITAIRE exist in database
             #If not, create it
@@ -97,14 +97,14 @@ def readHistoryFile():
             product_id = product.create(
                 {
                     "name": slugify(NOMPRODUIT),
-                    "number": NPRODUIT,
+                    "product_number": NPRODUIT,
                     "dilution": DILUTION,
                     "soo": SOO,
-                    "product_category": [category_id],
-                    "commanditaire": [commanditaire_id],
+                    "product_category": int(category_id),
+                    "commanditaire": int(commanditaire_id),
                     "result": RESULTAT,
                     "score": float(SCORAGE.replace(',','.')),
-                    "session": [session_id],
+                    "session": int(session_id),
                 }
             )
 
@@ -126,11 +126,11 @@ def readCategoryFile():
             category = Category()
             print(category.create(
                 {
-                    "name": params["name"],
+                    "name": slugify(params["name"]),
                     "description": params["description"],
-                    "number": params["number"],
+                    "category_number": params["number"],
                 }
             ))
 
-readHistoryFile()
 #readCategoryFile()
+readHistoryFile()
