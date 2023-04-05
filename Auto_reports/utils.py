@@ -9,9 +9,16 @@ class Product:
         r = requests.get(self.api_url + "/products")
         return r.json()['data']
     
-    def getBy(self, params):
-        r = requests.get(self.api_url + "/products", params=params)
+    def getBy(self, attribute, value):
+        r = requests.get(self.api_url + "/products?filters[%s][$eq]=%s"%(attribute, value))
         return r.json()['data']
+    
+    def isExist(self, attribute, value):
+        r = requests.get(self.api_url + "/products?filters[%s][$eq]=%s"%(attribute, value))
+        if len(r.json()['data']) == 0:
+            return False
+        else:
+            return True
 
     def create(self, params):
         print(json.dumps(params))
@@ -28,7 +35,7 @@ class Product:
             headers={"Content-Type": "application/json"},
             data=json.dumps({'data':params}),allow_redirects=True
         )
-        return r.json()
+        return r.json()['data']
 
 
 class Category:
@@ -37,21 +44,21 @@ class Category:
 
     def all(self):
         r = requests.get(self.api_url + "/categories")
-        return r.json()
+        return r.json()['data']
     
-    def isExist(self, params):
-        r = requests.get(self.api_url + "/categories", params=params)
+    def isExist(self, attribute, value):
+        r = requests.get(self.api_url + "/categories?filters[%s][$eq]=%s"%(attribute, value))
         if len(r.json()['data']) == 0:
             return False
         else:
             return True
             
-    def getBy(self, params):
+    def getBy(self, attribute, value):
         '''
         Get product categories by params
         category.getBy({"number": 1})
         '''
-        r = requests.get(self.api_url + "/categories", params=params)
+        r = requests.get(self.api_url + "/categories?filters[%s][$eq]=%s"%(attribute, value))
         return r.json()['data']
     
     def create(self, params):
@@ -69,7 +76,7 @@ class Category:
             headers={"Content-Type": "application/json"},
             data=json.dumps({'data':params}),
         )
-        return r.json()
+        return r.json()['data']
     
 class Commanditary:
     def __init__(self):
@@ -79,19 +86,19 @@ class Commanditary:
         r = requests.get(self.api_url + "/commanditaries")
         return r.json()
     
-    def isExist(self, params):
-        r = requests.get(self.api_url + "/commanditaries", params=params)
+    def isExist(self, attribute, value):
+        r = requests.get(self.api_url + "/commanditaries?filters[%s][$eq]=%s"%(attribute, value))
         if len(r.json()['data']) == 0:
             return False
         else:
             return True
             
-    def getBy(self, params):
+    def getBy(self, attribute, value):
         '''
         Get product categories by params
         category.getBy({"number": 1})
         '''
-        r = requests.get(self.api_url + "/commanditaries", params=params)
+        r = requests.get(self.api_url + "/commanditaries?filters[%s][$eq]=%s"%(attribute, value))
         return r.json()['data']
     
     def create(self, params):
@@ -109,7 +116,7 @@ class Commanditary:
             headers={"Content-Type": "application/json"},
             data=json.dumps({'data':params}),
         )
-        return r.json()
+        return r.json()['data']
 
 
 
@@ -119,21 +126,21 @@ class Session:
 
     def all(self):
         r = requests.get(self.api_url + "/sessions")
-        return r.json()
+        return r.json()['data']
     
-    def isExist(self, params):
-        r = requests.get(self.api_url + "/sessions", params=params)
+    def isExist(self, attribute, value):
+        r = requests.get(self.api_url + "/sessions?filters[%s][$eq]=%s"%(attribute, value))
         if len(r.json()['data']) == 0:
             return False
         else:
             return True
             
-    def getBy(self, params):
+    def getBy(self, attribute, value):
         '''
         Get product categories by params
         category.getBy({"number": 1})
         '''
-        r = requests.get(self.api_url + "/sessions", params=params)
+        r = requests.get(self.api_url + "/sessions?filters[%s][$eq]=%s"%(attribute, value))
         return r.json()['data']
     
     def create(self, params):
@@ -151,4 +158,4 @@ class Session:
             headers={"Content-Type": "application/json"},
             data=json.dumps({'data':params}),
         )
-        return r.json()
+        return r.json()['data']

@@ -16,28 +16,29 @@ def readHistoryFile():
                 continue
             #if PATCH empty, Get previus value of PATCH
             if line[0] != '':
-                SESSION = line[0]
+                SESSION = line[0].replace('\ufeff','').replace('\n','')
+            else :
+                SESSION = SESSION
             #Test if PATCH exist in database
             #If not, create it
             #If yes, get the id
             session = Session()
-            if session.isExist({"name": SESSION}):
-                session_id = session.getBy({"name": SESSION})[0]["id"]
+            if session.isExist("name",SESSION):
+                session_id = session.getBy("name",SESSION)[0]["id"]
             else:
                 session_id = session.create({"name": SESSION})["id"]
-
             #if COMMANDITAIRE empty, Get previus value of COMMANDITAIRE
             if slugify(line[1]) != '':
-                COMMANDITAIRE = slugify(line[1])
-
-            COMMANDITAIRE = slugify(line[1])
+                COMMANDITAIRE = line[1]
+            else :
+                COMMANDITAIRE = COMMANDITAIRE
 
             #Test if COMMANDITAIRE exist in database
             #If not, create it
             #If yes, get the id
             commanditaire = Commanditary()
-            if commanditaire.isExist({"name": COMMANDITAIRE}): 
-                commanditaire_id = commanditaire.getBy({"name": COMMANDITAIRE})[0]["id"]
+            if commanditaire.isExist("name", COMMANDITAIRE): 
+                commanditaire_id = commanditaire.getBy("name", COMMANDITAIRE)[0]["id"]
             else:
                 commanditaire_id = commanditaire.create({"name": COMMANDITAIRE})["id"]
 
@@ -63,7 +64,7 @@ def readHistoryFile():
 
             #Get the category id from the category number
             category = Category()
-            category_id = category.getBy({"number": NVCATCOSM})[0]["id"]
+            category_id = category.getBy("category_number",NVCATCOSM)[0]["id"]
             
 
             RESULTAT = line[7]
@@ -94,19 +95,20 @@ def readHistoryFile():
             
             #Create the product
             product = Product()
-            product_id = product.create(
-                {
-                    "name": slugify(NOMPRODUIT),
-                    "product_number": NPRODUIT,
-                    "dilution": DILUTION,
-                    "soo": SOO,
-                    "product_category": int(category_id),
-                    "commanditaire": int(commanditaire_id),
-                    "result": RESULTAT,
-                    "score": float(SCORAGE.replace(',','.')),
-                    "session": int(session_id),
-                }
-            )
+            if product.isExist("product_number", NPRODUIT): 
+                product_id = product.create(
+                    {
+                        "name": NOMPRODUIT,
+                        "product_number": NPRODUIT,
+                        "dilution": DILUTION,
+                        "soo": SOO,
+                        "product_category": int(category_id),
+                        "commanditaire": int(commanditaire_id),
+                        "result": RESULTAT,
+                        "score": float(SCORAGE.replace(',','.')),
+                        "session": int(session_id),
+                    }
+                )
 
     return product_id
 
