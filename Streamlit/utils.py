@@ -6,12 +6,39 @@ class Product:
         self.api_url = "https://dev-prod-eurosafe.wepredic.com/api"
 
     def all(self):
+        all_products = []
         r = requests.get(self.api_url + "/products")
+        all_products = all_products + r.json()['data']
+        page_count = r.json()['meta']['pagination']['pageCount']
+        if page_count > 1:
+            for i in range(2, page_count + 1):
+                r = requests.get(self.api_url + "/products?pagination[page]=%s"%i)
+                all_products = all_products + r.json()['data']
+        return all_products
+    
+    def getTotal(self):
+        r = requests.get(self.api_url + "/products")
+        return r.json()['meta']['pagination']['total']
+
+    def getPageCount(self,pageSize=10):
+        r = requests.get(self.api_url + "/products?pagination[pageSize]=%s"%pageSize)
+        return r.json()['meta']['pagination']['pageCount']
+    
+    def getByPage(self,pagenumber=1,pagesize=10):
+        r = requests.get(self.api_url + "/products?pagination[page]=%s&pagination[pageSize]=%s"%(pagenumber,pagesize))
+        return r.json()['data']
+
+
+    def getBy(self, attribute, value):
+        r = requests.get(self.api_url + "/products?filters[%s][$eq]=%s"%(attribute, value))
         return r.json()['data']
     
-    def getBy(self, params):
-        r = requests.get(self.api_url + "/products", params=params)
-        return r.json()['data']
+    def isExist(self, attribute, value):
+        r = requests.get(self.api_url + "/products?filters[%s][$eq]=%s"%(attribute, value))
+        if len(r.json()['data']) == 0:
+            return False
+        else:
+            return True
 
     def create(self, params):
         print(json.dumps(params))
@@ -28,7 +55,7 @@ class Product:
             headers={"Content-Type": "application/json"},
             data=json.dumps({'data':params}),allow_redirects=True
         )
-        return r.json()
+        return r.json()['data']
 
 
 class Category:
@@ -36,22 +63,33 @@ class Category:
         self.api_url = "https://dev-prod-eurosafe.wepredic.com/api"
 
     def all(self):
+        all_categories = []
         r = requests.get(self.api_url + "/categories")
-        return r.json()
+        all_categories = all_categories + r.json()['data']
+        page_count = r.json()['meta']['pagination']['pageCount']
+        if page_count > 1:
+            for i in range(2, page_count + 1):
+                r = requests.get(self.api_url + "/categories?pagination[page]=%s"%i)
+                all_categories = all_categories + r.json()['data']
+        return all_categories
+
+    def getTotal(self):
+        r = requests.get(self.api_url + "/categories")
+        return r.json()['meta']['pagination']['total']
     
-    def isExist(self, params):
-        r = requests.get(self.api_url + "/categories", params=params)
+    def isExist(self, attribute, value):
+        r = requests.get(self.api_url + "/categories?filters[%s][$eq]=%s"%(attribute, value))
         if len(r.json()['data']) == 0:
             return False
         else:
             return True
             
-    def getBy(self, params):
+    def getBy(self, attribute, value):
         '''
         Get product categories by params
         category.getBy({"number": 1})
         '''
-        r = requests.get(self.api_url + "/categories", params=params)
+        r = requests.get(self.api_url + "/categories?filters[%s][$eq]=%s"%(attribute, value))
         return r.json()['data']
     
     def create(self, params):
@@ -69,29 +107,40 @@ class Category:
             headers={"Content-Type": "application/json"},
             data=json.dumps({'data':params}),
         )
-        return r.json()
+        return r.json()['data']
     
 class Commanditary:
     def __init__(self):
         self.api_url = "https://dev-prod-eurosafe.wepredic.com/api"
 
     def all(self):
+        all_commanditaries = []
         r = requests.get(self.api_url + "/commanditaries")
-        return r.json()
+        all_commanditaries = all_commanditaries + r.json()['data']
+        page_count = r.json()['meta']['pagination']['pageCount']
+        if page_count > 1:
+            for i in range(2, page_count + 1):
+                r = requests.get(self.api_url + "/commanditaries?pagination[page]=%s"%i)
+                all_commanditaries = all_commanditaries + r.json()['data']
+        return all_commanditaries
+
+    def getTotal(self):
+        r = requests.get(self.api_url + "/commanditaries")
+        return r.json()['meta']['pagination']['total']
     
-    def isExist(self, params):
-        r = requests.get(self.api_url + "/commanditaries", params=params)
+    def isExist(self, attribute, value):
+        r = requests.get(self.api_url + "/commanditaries?filters[%s][$eq]=%s"%(attribute, value))
         if len(r.json()['data']) == 0:
             return False
         else:
             return True
             
-    def getBy(self, params):
+    def getBy(self, attribute, value):
         '''
         Get product categories by params
         category.getBy({"number": 1})
         '''
-        r = requests.get(self.api_url + "/commanditaries", params=params)
+        r = requests.get(self.api_url + "/commanditaries?filters[%s][$eq]=%s"%(attribute, value))
         return r.json()['data']
     
     def create(self, params):
@@ -109,7 +158,7 @@ class Commanditary:
             headers={"Content-Type": "application/json"},
             data=json.dumps({'data':params}),
         )
-        return r.json()
+        return r.json()['data']
 
 
 
@@ -119,21 +168,21 @@ class Session:
 
     def all(self):
         r = requests.get(self.api_url + "/sessions")
-        return r.json()
+        return r.json()['data']
     
-    def isExist(self, params):
-        r = requests.get(self.api_url + "/sessions", params=params)
+    def isExist(self, attribute, value):
+        r = requests.get(self.api_url + "/sessions?filters[%s][$eq]=%s"%(attribute, value))
         if len(r.json()['data']) == 0:
             return False
         else:
             return True
             
-    def getBy(self, params):
+    def getBy(self, attribute, value):
         '''
         Get product categories by params
         category.getBy({"number": 1})
         '''
-        r = requests.get(self.api_url + "/sessions", params=params)
+        r = requests.get(self.api_url + "/sessions?filters[%s][$eq]=%s"%(attribute, value))
         return r.json()['data']
     
     def create(self, params):
@@ -151,4 +200,4 @@ class Session:
             headers={"Content-Type": "application/json"},
             data=json.dumps({'data':params}),
         )
-        return r.json()
+        return r.json()['data']

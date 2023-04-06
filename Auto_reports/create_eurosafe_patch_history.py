@@ -56,7 +56,7 @@ def readHistoryFile():
             elif SOO == 'S':
                 SOO = 'semi_occlusive'
             else:
-                SOO = ''
+                SOO = SOO
             
             NOMPRODUIT = line[5].replace('\n','')
 
@@ -95,15 +95,16 @@ def readHistoryFile():
             
             #Create the product
             product = Product()
-            if product.isExist("product_number", NPRODUIT): 
+            if not product.isExist("product_number", NPRODUIT): 
+                print('Create '+ NPRODUIT)
                 product_id = product.create(
                     {
                         "name": NOMPRODUIT,
                         "product_number": NPRODUIT,
                         "dilution": DILUTION,
                         "soo": SOO,
-                        "product_category": int(category_id),
-                        "commanditaire": int(commanditaire_id),
+                        "category": int(category_id),
+                        "commanditary": int(commanditaire_id),
                         "result": RESULTAT,
                         "score": float(SCORAGE.replace(',','.')),
                         "session": int(session_id),
