@@ -39,6 +39,18 @@ class Product:
             return False
         else:
             return True
+        
+    def getByRequest(self, request):
+        all_products = []
+        r = requests.get(self.api_url + "/products?%s"%request)
+        all_products = all_products + r.json()['data']
+        page_count = r.json()['meta']['pagination']['pageCount']
+        if page_count > 1:
+            for i in range(2, page_count + 1):
+                print("/products?pagination[page]=%s%s"%(i,request))
+                r = requests.get(self.api_url + "/products?pagination[page]=%s%s"%(i,request))
+                all_products = all_products + r.json()['data']
+        return all_products
 
     def create(self, params):
         print(json.dumps(params))
