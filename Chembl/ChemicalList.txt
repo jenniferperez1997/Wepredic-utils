@@ -32,8 +32,8 @@ Sodium diclofenac	15307-79-6
 Zonisamide	68291-97-4
 n-Butyl chloride	109-69-3
 N,N-dicyclohexyl thiourea	1212-29-9
-Ephedrine sulphate/hydrochloride	134-72-5/134-71-4
-Erythromycin/erythromycin stearate	114-07-8/643-22-1
+Ephedrine sulphate/hydrochloride	134-72-5
+Erythromycin/erythromycin stearate	114-07-8
 Phenformin HCl	834-28-6
 Amitrole	61-82-5
 Di-(2-ethylhexyl) phthalate	117-81-7
@@ -95,7 +95,7 @@ Acarbose	56180-94-0
 Azathioprine	446-86-6
 Azithromycin	83905-01-5
 Ciprofloxacin	85721-33-1
-Dacarbazine	04/03/4342
+Dacarbazine	04-03-4342
 Diltiazem HCl	33286-22-5
 Gentamycin Sulfate	1405-41-0
 Halothane	151-67-7 
@@ -136,7 +136,7 @@ Sodium Chloride	7647-14-5
 Sucrose	57-50-1
 Theophylline	58-55-9
 Torsemide	56211-40-6
-Trisodium Citrate Dihydrate	03/04/6132
+Trisodium Citrate Dihydrate	03-04-6132
 Vardenafil HCl	224785-91-5
 Clozapine	5786-21-0
 Diclofenac	15307-86-5
